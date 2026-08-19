@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5A4 - Mậu Lương | Mạng Xã Hội Lớp Học</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fffbebe6',
+                            100: '#fef3c7',
+                            400: '#facc15',
+                            500: '#eab308', // Core Yellow
+                            600: '#ca8a04', // Darker Yellow on hover
+                            700: '#a16207',
+                        },
+                        fbBg: '#f0f2f5'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+        }
+
+        .yellow-nav {
+            background-color: #eab308;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        }
+
+        .btn-yellow {
+            background-color: #eab308;
+            color: #ffffff;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .btn-yellow:hover {
+            background-color: #ca8a04;
+            transform: translateY(-1px);
+        }
+
+        .btn-green-fb {
+            background-color: #42b72a;
+            color: #ffffff;
+            transition: all 0.2s ease;
+        }
+
+        .btn-green-fb:hover {
+            background-color: #36a420;
+        }
+
+        .bear-logo-shadow {
+            filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.15));
+        }
+
+        .yellow-focus:focus {
+            border-color: #eab308;
+            box-shadow: 0 0 0 2px rgba(234, 179, 8, 0.25);
+            outline: none;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-5px); }
+            40%, 80% { transform: translateX(5px); }
+        }
+        .shake {
+            animation: shake 0.4s ease-in-out;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-[#f0f2f5] text-gray-900 antialiased min-h-screen flex flex-col justify-between relative">
+
+    <!-- Top Navigation Bar -->
+    <header class="yellow-nav w-full py-2.5 px-4 sm:px-6 flex items-center justify-between sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto w-full flex items-center justify-between gap-4">
+            
+            <!-- Logo & Brand Name -->
+            <div class="flex items-center gap-3 cursor-pointer" onclick="handleLogoClick()">
+                <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden flex-shrink-0 bg-white p-0.5 shadow-md hover:scale-105 transition-transform duration-200">
+                    <svg viewBox="0 0 500 500" class="w-full h-full">
+                        <circle cx="250" cy="250" r="240" fill="#1d3557" />
+                        <circle cx="250" cy="250" r="225" fill="#f1faee" />
+                        <circle cx="250" cy="250" r="215" fill="#eab308" />
+                        <circle cx="250" cy="250" r="200" fill="#1d3557" />
+                        <circle cx="250" cy="250" r="185" fill="#a8dadc" />
+                        <path d="M 130,190 L 135,205 L 150,205 L 138,215 L 142,230 L 130,220 L 118,230 L 122,215 L 110,205 L 125,205 Z" fill="#facc15" />
+                        <path d="M 370,190 L 375,205 L 390,205 L 378,215 L 382,230 L 370,220 L 358,230 L 362,215 L 350,205 L 365,205 Z" fill="#facc15" />
+                        <circle cx="170" cy="165" r="42" fill="#8d5b4c" stroke="#3d231a" stroke-width="6" />
+                        <circle cx="330" cy="165" r="42" fill="#8d5b4c" stroke="#3d231a" stroke-width="6" />
+                        <circle cx="170" cy="165" r="22" fill="#f4a261" />
+                        <circle cx="330" cy="165" r="22" fill="#f4a261" />
+                        <ellipse cx="250" cy="235" rx="95" ry="85" fill="#8d5b4c" stroke="#3d231a" stroke-width="6" />
+                        <ellipse cx="185" cy="235" rx="18" ry="10" fill="#ff70a6" opacity="0.8" />
+                        <ellipse cx="315" cy="235" rx="18" ry="10" fill="#ff70a6" opacity="0.8" />
+                        <ellipse cx="250" cy="238" rx="35" ry="26" fill="#fceade" stroke="#3d231a" stroke-width="4" />
+                        <ellipse cx="250" cy="225" rx="14" ry="10" fill="#3d231a" />
+                        <path d="M 250,235 Q 240,255 250,260 Q 260,255 250,235" fill="#e63946" stroke="#3d231a" stroke-width="3" />
+                        <circle cx="210" cy="210" r="14" fill="#3d231a" />
+                        <circle cx="290" cy="210" r="14" fill="#3d231a" />
+                        <circle cx="206" cy="205" r="5" fill="#ffffff" />
+                        <circle cx="286" cy="205" r="5" fill="#ffffff" />
+                        <path d="M 180,285 Q 250,270 320,285 C 340,330 330,380 250,380 C 170,380 160,330 180,285 Z" fill="#8d5b4c" stroke="#3d231a" stroke-width="6" />
+                        <ellipse cx="190" cy="360" rx="22" ry="26" fill="#f4a261" stroke="#3d231a" stroke-width="4" />
+                        <ellipse cx="310" cy="360" rx="22" ry="26" fill="#f4a261" stroke="#3d231a" stroke-width="4" />
+                        <rect x="180" y="285" width="140" height="55" rx="12" fill="#facc15" stroke="#1d3557" stroke-width="6" />
+                        <rect x="185" y="290" width="130" height="45" rx="8" fill="#facc15" stroke="#1d3557" stroke-width="2" />
+                        <text x="250" y="327" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="34" fill="#1d3557" text-anchor="middle">5A4</text>
+                    </svg>
+                </div>
+                
+                <span class="text-white text-xl sm:text-2xl font-extrabold tracking-tight drop-shadow-sm select-none">
+                    5A4 - Mậu Lương
+                </span>
+            </div>
+
+            <!-- Header Quick Actions / User Info when Logged In -->
+            <div id="headerRightArea" class="flex items-center gap-3">
+                <button id="navSloganBtn" onclick="toggleDemoNotice()" class="bg-white/20 hover:bg-white/30 text-white text-xs sm:text-sm font-semibold px-3 py-1.5 rounded-full transition flex items-center gap-1.5 backdrop-blur-sm">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span class="hidden sm:inline">Lớp học hạnh phúc</span>
+                </button>
+
+                <div id="loggedInUserHeader" class="hidden flex items-center gap-1.5 sm:gap-2.5">
+                    <div class="flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full text-white backdrop-blur-sm">
+                        <span id="headerUserAvatar" class="w-7 h-7 rounded-full bg-white text-amber-600 font-bold flex items-center justify-center text-sm shadow">🐻</span>
+                        <span id="headerUserName" class="text-xs sm:text-sm font-bold truncate max-w-[100px] sm:max-w-[150px]">Tên Học Sinh</span>
+                    </div>
+
+                    <button onclick="handleLogout()" title="Đăng xuất khỏi tài khoản 5A4" class="bg-red-500 hover:bg-red-600 text-white text-xs sm:text-sm font-bold px-3 py-1.5 rounded-full shadow transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span class="hidden sm:inline">Đăng xuất</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- VIEW 1: UNAUTHENTICATED (LOGIN / REGISTER VIEW) -->
+    <main id="loginView" class="flex-1 flex items-center justify-center p-4 sm:p-6 lg:p-12">
+        <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <div class="lg:col-span-7 text-center lg:text-left space-y-4 pr-0 lg:pr-8">
+                <div class="flex flex-col items-center lg:items-start">
+                    <div class="w-36 h-36 sm:w-48 sm:h-48 lg:w-56 lg:h-56 mb-4 bear-logo-shadow transform hover:rotate-2 transition-transform duration-300 cursor-pointer" onclick="triggerBearAnimation(this)">
+                        <svg viewBox="0 0 500 500" class="w-full h-full drop-shadow-xl">
+                            <circle cx="250" cy="250" r="240" fill="#1d3557" />
+                            <circle cx="250" cy="250" r="225" fill="#f1faee" />
+                            <circle cx="250" cy="250" r="215" fill="#eab308" />
+                            <circle cx="250" cy="250" r="200" fill="#1d3557" />
+                            <circle cx="250" cy="250" r="185" fill="#a8dadc" />
+                            <path d="M 130,190 L 135,205 L 150,205 L 138,215 L 142,230 L 130,220 L 118,230 L 122,215 L 110,205 L 125,205 Z" fill="#facc15" />
+                            <path d="M 130,235 L 135,245 L 145,245 L 137,252 L 140,262 L 130,255 L 120,262 L 123,252 L 115,245 L 125,245 Z" fill="#facc15" />
+                            <path d="M 370,190 L 375,205 L 390,205 L 378,215 L 382,230 L 370,220 L 358,230 L 362,215 L 350,205 L 365,205 Z" fill="#facc15" />
+                            <path d="M 370,235 L 375,245 L 385,245 L 377,252 L 380,262 L 370,255 L 360,262 L 363,252 L 355,245 L 365,245 Z" fill="#facc15" />
+                            <circle cx="170" cy="165" r="42" fill="#8d5b4c" stroke="#3d231a" stroke-width="6" />
+                            <circle cx="330" cy="165" r="42" fill="#8d5b4c" stroke="#3d231a" stroke-width="6" />
+                            <circle cx="170" cy="165" r="22" fill="#f4a261" />
+                            <circle cx="330" cy="165" r="22" fill="#f4a261" />
+                            <ellipse cx="250" cy="235" rx="95" ry="85" fill="#8d5b4c" stroke="#3d231a" stroke-width="6" />
+                            <ellipse cx="185" cy="235" rx="18" ry="10" fill="#ff70a6" opacity="0.8" />
+                            <ellipse cx="315" cy="235" rx="18" ry="10" fill="#ff70a6" opacity="0.8" />
+                            <ellipse cx="250" cy="238" rx="35" ry="26" fill="#fceade" stroke="#3d231a" stroke-width="4" />
+                            <ellipse cx="250" cy="225" rx="14" ry="10" fill="#3d231a" />
+                            <path d="M 250,235 Q 240,255 250,260 Q 260,255 250,235" fill="#e63946" stroke="#3d231a" stroke-width="3" />
+                            <circle cx="210" cy="210" r="14" fill="#3d231a" />
+                            <circle cx="290" cy="210" r="14" fill="#3d231a" />
+                            <circle cx="206" cy="205" r="5" fill="#ffffff" />
+                            <circle cx="286" cy="205" r="5" fill="#ffffff" />
+                            <path d="M 180,285 Q 250,270 320,285 C 340,330 330,380 250,380 C 170,380 160,330 180,285 Z" fill="#8d5b4c" stroke="#3d231a" stroke-width="6" />
+                            <ellipse cx="190" cy="360" rx="22" ry="26" fill="#f4a261" stroke="#3d231a" stroke-width="4" />
+                            <ellipse cx="310" cy="360" rx="22" ry="26" fill="#f4a261" stroke="#3d231a" stroke-width="4" />
+                            <rect x="180" y="285" width="140" height="55" rx="12" fill="#facc15" stroke="#1d3557" stroke-width="6" />
+                            <rect x="185" y="290" width="130" height="45" rx="8" fill="#facc15" stroke="#1d3557" stroke-width="2" />
+                            <text x="250" y="327" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="34" fill="#1d3557" text-anchor="middle">5A4</text>
+                        </svg>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl font-extrabold text-[#1d3557] tracking-tight mb-2">
+                        5A4 - Mậu Lương
+                    </h1>
+                    <p class="text-lg sm:text-2xl text-gray-700 font-medium max-w-lg leading-snug">
+                        Giúp bạn kết nối và chia sẻ với các bạn học sinh & thầy cô Lớp 5A4 Trường Mậu Lương.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Column: Login Card -->
+            <div class="lg:col-span-5 w-full max-w-md mx-auto">
+                <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 border border-gray-100 relative">
+                    <form id="loginForm" onsubmit="handleLogin(event)" class="space-y-4">
+                        <div>
+                            <input type="text" id="loginEmail" required
+                                placeholder="Email hoặc số điện thoại" 
+                                class="w-full px-4 py-3.5 border border-gray-300 rounded-lg text-base yellow-focus transition bg-gray-50/50">
+                        </div>
+
+                        <div class="relative">
+                            <input type="password" id="loginPassword" required
+                                placeholder="Mật khẩu" 
+                                class="w-full px-4 py-3.5 border border-gray-300 rounded-lg text-base yellow-focus transition bg-gray-50/50 pr-12">
+                            <button type="button" onclick="togglePasswordVisibility('loginPassword', 'loginEyeIcon')" class="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                                <i id="loginEyeIcon" class="fa-regular fa-eye"></i>
+                            </button>
+                        </div>
+
+                        <button type="submit" id="btnLogin" class="w-full btn-yellow font-bold text-lg py-3 rounded-lg shadow-md hover:shadow-lg transition duration-200 flex items-center justify-center gap-2">
+                            <span>Đăng nhập</span>
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </button>
+
+                        <div class="text-center pt-2">
+                            <a href="#" onclick="openForgotModal(event)" class="text-sm font-medium text-amber-600 hover:text-amber-700 hover:underline">
+                                Quên mật khẩu?
+                            </a>
+                        </div>
+
+                        <hr class="my-5 border-gray-200">
+
+                        <div class="text-center pt-1">
+                            <button type="button" onclick="openRegisterModal()" class="btn-green-fb font-bold text-base px-6 py-3 rounded-lg shadow hover:shadow-md transition duration-200 inline-block">
+                                Tạo tài khoản mới
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <p class="text-center text-xs text-gray-500 mt-6">
+                    <a href="#" class="font-bold text-gray-700 hover:underline">Tạo Trang</a> dành cho Lớp 5A4, Câu lạc bộ hoặc Nhóm học tập Trường Mậu Lương.
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- VIEW 2: AUTHENTICATED (LOGGED IN CLASS FEED VIEW) -->
+    <main id="feedView" class="hidden flex-1 max-w-7xl w-full mx-auto p-3 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <aside class="lg:col-span-4 space-y-4 hidden lg:block">
+            <div class="bg-white rounded-2xl shadow p-4 border border-gray-200/80">
+                <div class="flex items-center gap-3 pb-3 border-b border-gray-100">
+                    <div id="feedUserAvatar" class="w-12 h-12 rounded-full bg-amber-500 text-white flex items-center justify-center text-2xl font-bold shadow">
+                        🐻
+                    </div>
+                    <div>
+                        <h3 id="feedUserName" class="font-bold text-gray-900 text-base leading-snug">Học sinh 5A4</h3>
+                        <p id="feedUserRole" class="text-xs text-amber-600 font-semibold">Học sinh Lớp 5A4</p>
+                    </div>
+                </div>
+
+                <nav class="mt-3 space-y-1">
+                    <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-xl bg-amber-50 text-amber-700 font-bold text-sm">
+                        <i class="fa-solid fa-house text-amber-500 w-5"></i>
+                        <span>Bảng tin Lớp 5A4</span>
+                    </a>
+                    <a href="#" onclick="showToast('Thời khóa biểu', 'Đang Cập Nhật Nha!')" class="flex items-center gap-3 px-3 py-2 rounded-xl text-gray-700 hover:bg-gray-100 font-semibold text-sm transition">
+                        <i class="fa-solid fa-calendar-days text-blue-500 w-5"></i>
+                        <span>Thời khóa biểu</span>
+                    </a>
+                    <a href="#" onclick="showToast('Thư viện ảnh 5A4', 'Admin Chưa Thêm ảnh rùi')" class="flex items-center gap-3 px-3 py-2 rounded-xl text-gray-700 hover:bg-gray-100 font-semibold text-sm transition">
+                        <i class="fa-solid fa-images text-emerald-500 w-5"></i>
+                        <span>Góc Kỷ Niệm 5A4</span>
+                    </a>
+                    <a href="#" onclick="showToast('Bảng Vàng Thi Đua', 'Lớp 5A4 đứng đầu toàn trường tuần này! 🎉')" class="flex items-center gap-3 px-3 py-2 rounded-xl text-gray-700 hover:bg-gray-100 font-semibold text-sm transition">
+                        <i class="fa-solid fa-trophy text-yellow-500 w-5"></i>
+                        <span>Thi Đua Tuần</span>
+                    </a>
+                </nav>
+            </div>
+
+            <div class="bg-gradient-to-br from-amber-500 to-amber-600 text-white rounded-2xl p-4 shadow-lg space-y-2">
+                <div class="flex items-center gap-2 font-bold text-sm">
+                    <i class="fa-solid fa-bullhorn text-amber-200"></i>
+                    <span>Thông báo quan trọng</span>
+                </div>
+                <p class="text-xs text-amber-50 leading-relaxed">
+                    Kỷ Niệm Tập Thể 5A4 - Năm Học 2025-2026
+<p>Năm học 2025-2026 khép lại đã để lại trong tim mỗi thành viên lớp 5A4 những dấu ấn không thể nào quên của năm tháng cuối cấp tiểu học. Đó là một chặng đường tuyệt vời rực rỡ sắc màu, nơi tình bạn tuổi học trò được dệt nên từ những tiếng cười giòn giã mỗi giờ ra chơi và những lúc sát cánh bên nhau trong các hoạt động chi đội.</p>
+
+<p>Những kỷ niệm cùng nhau chăm chút cho từng bức ảnh tập thể hay cùng lên ý tưởng thiết kế những biểu tượng, logo mang đậm dấu ấn riêng của lớp không chỉ bừng sáng nét sáng tạo mà còn là minh chứng cho một tinh thần đoàn kết vô giá. Dù mùa hè này khép lại một hành trình cũ, đưa mỗi thành viên bước sang cánh cửa trung học cơ sở với những chân trời hoàn toàn mới, nhưng niềm tự hào mang tên 5A4 và những ký ức rạng rỡ của năm học vừa qua sẽ mãi là một phần hành trang ấm áp theo chân các bạn trưởng thành.</p>
+
+<p>Chúc tập thể 5A4 luôn giữ mãi ngọn lửa gắn kết, sự sáng tạo và gặt hái thêm thật nhiều thành công trên những chặng đường sắp tới!</p>
+                </p>
+            </div>
+        </aside>
+
+        <!-- Center Column: Create Post & Class Feed -->
+        <section class="lg:col-span-8 space-y-4">
+            
+            <div class="bg-white rounded-2xl shadow p-4 sm:p-5 border border-amber-200 bg-gradient-to-r from-amber-50/60 via-white to-amber-50/30 flex items-center justify-between">
+                <div>
+                    <h2 class="text-lg sm:text-xl font-extrabold text-gray-900">
+                        Xin chào, <span id="welcomeUserName" class="text-amber-600">Học sinh</span>! 👋
+                    </h2>
+                    <p class="text-xs sm:text-sm text-gray-600 mt-0.5">Chúc bạn một ngày học tập thật nhiều niềm vui tại 5A4 Mậu Lương.</p>
+                </div>
+                <div class="text-3xl hidden sm:block">🌟</div>
+            </div>
+
+            <!-- Create Post Box -->
+            <div class="bg-white rounded-2xl shadow p-4 border border-gray-200">
+                <div class="flex items-center gap-3">
+                    <div id="postInputAvatar" class="w-10 h-10 rounded-full bg-amber-500 text-white font-bold flex items-center justify-center text-lg flex-shrink-0">
+                        🐻
+                    </div>
+                    <input type="text" id="postInputText" placeholder="Bạn muốn chia sẻ điều gì với cả lớp 5A4?" 
+                        class="w-full bg-gray-100 hover:bg-gray-200/80 focus:bg-white px-4 py-2.5 rounded-full text-sm yellow-focus transition">
+                </div>
+
+                <!-- Media Preview Area -->
+                <div id="mediaPreviewContainer" class="hidden relative mt-3 rounded-xl overflow-hidden bg-black/5 max-h-60 flex items-center justify-center border border-gray-200">
+                    <button onclick="removeSelectedMedia()" class="absolute top-2 right-2 bg-black/60 hover:bg-black/80 text-white w-7 h-7 rounded-full flex items-center justify-center z-10 transition">
+                        <i class="fa-solid fa-xmark text-sm"></i>
+                    </button>
+                    <div id="mediaPreviewContent" class="w-full h-full flex items-center justify-center"></div>
+                </div>
+
+                <hr class="my-3 border-gray-100">
+                <div class="flex items-center justify-between pt-1 text-xs sm:text-sm text-gray-600 font-semibold">
+                    <input type="file" id="mediaFileInput" accept="image/*,video/*" class="hidden" onchange="handleMediaSelect(event)">
+                    <button onclick="document.getElementById('mediaFileInput').click()" class="flex items-center gap-2 hover:bg-gray-100 px-3 py-1.5 rounded-lg transition text-emerald-600">
+                        <i class="fa-solid fa-image text-lg"></i>
+                        <span>Ảnh/Video</span>
+                    </button>
+                    <button onclick="addEmojiToPost('😊')" class="flex items-center gap-2 hover:bg-gray-100 px-3 py-1.5 rounded-lg transition text-yellow-500">
+                        <i class="fa-solid fa-face-smile text-lg"></i>
+                        <span>Cảm xúc</span>
+                    </button>
+                    <button onclick="publishPost()" class="btn-yellow px-5 py-2 rounded-xl text-white font-bold shadow hover:shadow-md transition">
+                        Đăng tin
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dynamic Posts Stream (Empty initially) -->
+            <div id="postsStream" class="space-y-4">
+                <div id="emptyPostsNotice" class="bg-white rounded-2xl shadow p-8 text-center border border-gray-200 space-y-3">
+                    <div class="w-16 h-16 bg-amber-100 text-amber-500 rounded-full flex items-center justify-center mx-auto text-2xl">
+                        <i class="fa-solid fa-newspaper"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-base">Chưa có bài đăng nào</h3>
+                    <p class="text-xs text-gray-500 max-w-sm mx-auto">Hãy là người đầu tiên chia sẻ kỷ niệm, câu hỏi hoặc tin tức mới cho Lớp 5A4 nhé!</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <!-- Registration Modal -->
+    <div id="registerModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-200">
+        <div id="registerModalContent" class="bg-white rounded-xl shadow-2xl w-full max-w-lg overflow-hidden transform scale-95 transition-transform duration-200">
+            
+            <div class="p-4 sm:p-5 border-b border-gray-200 flex items-start justify-between bg-gray-50">
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900">Đăng ký</h2>
+                    <p class="text-xs sm:text-sm text-gray-500 mt-1">Nhanh chóng và dễ dàng dành cho thành viên 5A4 Mậu Lương.</p>
+                </div>
+                <button onclick="closeRegisterModal()" class="text-gray-400 hover:text-gray-600 w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-200 transition">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+
+            <form id="registerForm" onsubmit="handleRegister(event)" class="p-4 sm:p-6 space-y-3.5">
+                <div class="grid grid-cols-2 gap-3">
+                    <input type="text" id="regLastName" placeholder="Họ" required class="w-full px-3.5 py-2.5 border border-gray-300 rounded-md text-sm yellow-focus bg-gray-50/30">
+                    <input type="text" id="regFirstName" placeholder="Tên" required class="w-full px-3.5 py-2.5 border border-gray-300 rounded-md text-sm yellow-focus bg-gray-50/30">
+                </div>
+
+                <input type="text" id="regContact" placeholder="Số di động hoặc email" required class="w-full px-3.5 py-2.5 border border-gray-300 rounded-md text-sm yellow-focus bg-gray-50/30">
+
+                <div class="relative">
+                    <input type="password" id="regPassword" placeholder="Mật khẩu mới" required class="w-full px-3.5 py-2.5 border border-gray-300 rounded-md text-sm yellow-focus bg-gray-50/30 pr-10">
+                    <button type="button" onclick="togglePasswordVisibility('regPassword', 'regEyeIcon')" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                        <i id="regEyeIcon" class="fa-regular fa-eye text-sm"></i>
+                    </button>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-gray-600 mb-1 flex items-center gap-1">
+                        <span>Ngày sinh</span>
+                    </label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <select id="regDay" class="px-2 py-2 border border-gray-300 rounded-md text-sm yellow-focus bg-white"></select>
+                        <select id="regMonth" class="px-2 py-2 border border-gray-300 rounded-md text-sm yellow-focus bg-white"></select>
+                        <select id="regYear" class="px-2 py-2 border border-gray-300 rounded-md text-sm yellow-focus bg-white"></select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-gray-600 mb-1">Giới tính</label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <label class="flex items-center justify-between p-2 border border-gray-300 rounded-md text-sm cursor-pointer hover:bg-gray-50">
+                            <span class="text-xs font-medium">Nữ</span>
+                            <input type="radio" name="gender" value="female" class="accent-amber-500" required>
+                        </label>
+                        <label class="flex items-center justify-between p-2 border border-gray-300 rounded-md text-sm cursor-pointer hover:bg-gray-50">
+                            <span class="text-xs font-medium">Nam</span>
+                            <input type="radio" name="gender" value="male" class="accent-amber-500" required>
+                        </label>
+                        <label class="flex items-center justify-between p-2 border border-gray-300 rounded-md text-sm cursor-pointer hover:bg-gray-50">
+                            <span class="text-xs font-medium">Khác</span>
+                            <input type="radio" name="gender" value="other" class="accent-amber-500" required>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="text-center pt-2">
+                    <button type="submit" class="btn-yellow font-extrabold text-lg px-10 py-2.5 rounded-md shadow-md hover:shadow-lg transition inline-block">
+                        Đăng ký
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Terms Modal -->
+    <div id="termsModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[80vh] flex flex-col overflow-hidden">
+            <div class="p-4 border-b border-gray-200 flex items-center justify-between yellow-nav text-white">
+                <h3 class="text-lg font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-file-contract"></i>
+                    <span>Điều khoản sử dụng - 5A4 Mậu Lương</span>
+                </h3>
+                <button onclick="closeTermsModal()" class="w-7 h-7 rounded-full hover:bg-white/20 flex items-center justify-center">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="p-5 overflow-y-auto space-y-3 text-xs text-gray-700 leading-relaxed custom-scrollbar">
+                <p class="font-bold text-sm text-gray-900">1. Quy định chung</p>
+                <p>Mạng xã hội Lớp 5A4 Trường Tiểu học Mậu Lương là không gian sinh hoạt chung dành riêng cho học sinh, phụ huynh và giáo viên của lớp.</p>
+                
+                <p class="font-bold text-sm text-gray-900">2. Văn hóa ứng xử</p>
+                <p>Các thành viên cần tôn trọng lẫn nhau, không gửi thông tin sai sự thật, không đăng nội dung thiếu lành mạnh hoặc xúc phạm bạn bè, thầy cô.</p>
+                
+                <p class="font-bold text-sm text-gray-900">3. Bảo mật thông tin</p>
+                <p>Vui lòng bảo vệ tài khoản cá nhân, không chia sẻ mật khẩu cho người khác. Mọi thông tin hình ảnh lớp học được quản lý nội bộ.</p>
+            </div>
+            <div class="p-3 border-t border-gray-200 bg-gray-50 text-right">
+                <button onclick="closeTermsModal()" class="btn-yellow px-5 py-2 text-xs font-bold rounded-lg shadow">Tôi đã hiểu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div id="forgotModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl max-w-md w-full p-6 space-y-4">
+            <div class="flex items-center justify-between border-b pb-3">
+                <h3 class="text-xl font-bold text-gray-800">Khôi phục mật khẩu 5A4</h3>
+                <button onclick="closeForgotModal()" class="text-gray-400 hover:text-gray-600"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <p class="text-sm text-gray-600">Vui lòng nhập email hoặc số điện thoại học sinh/phụ huynh để tìm kiếm tài khoản Lớp 5A4 Mậu Lương.</p>
+            <input type="text" id="forgotInput" placeholder="Email hoặc số điện thoại" class="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm yellow-focus">
+            <div class="flex justify-end gap-2 pt-2">
+                <button onclick="closeForgotModal()" class="px-4 py-2 bg-gray-200 text-gray-700 font-medium rounded-lg text-sm hover:bg-gray-300">Hủy</button>
+                <button onclick="handleForgotSubmit()" class="btn-yellow px-5 py-2 font-bold rounded-lg text-sm">Tìm kiếm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Popup -->
+    <div id="toastNotification" class="fixed bottom-5 left-5 z-50 flex items-center gap-3 bg-gray-900 text-white px-5 py-3.5 rounded-xl shadow-2xl transform translate-y-20 opacity-0 transition-all duration-300 max-w-sm">
+        <div id="toastIcon" class="text-amber-400 text-xl"><i class="fa-solid fa-circle-check"></i></div>
+        <div class="text-sm">
+            <p id="toastTitle" class="font-bold text-white">Thông báo</p>
+            <p id="toastMessage" class="text-gray-300 text-xs mt-0.5">Nội dung thông báo</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-4 px-4 text-xs text-gray-500">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+            <p class="text-gray-400">Lớp 5A4 - Trường Tiểu học Mậu Lương &copy; 2026.</p>
+            <div class="flex items-center gap-4 text-gray-500 font-medium">
+                <a href="#" onclick="openTermsModal(event)" class="hover:underline text-amber-600 font-bold">Điều khoản</a>
+                <a href="#" class="hover:underline">Bảo mật</a>
+                <a href="#" class="hover:underline">Trợ giúp 5A4</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Global Application State
+        let currentUser = null;
+        let selectedMedia = null;
+
+        // Date Selectors Initialization
+        function initDateSelectors() {
+            const daySelect = document.getElementById('regDay');
+            const monthSelect = document.getElementById('regMonth');
+            const yearSelect = document.getElementById('regYear');
+            if (!daySelect || !monthSelect || !yearSelect) return;
+
+            daySelect.innerHTML = '<option value="">Ngày</option>';
+            for (let i = 1; i <= 31; i++) {
+                daySelect.innerHTML += `<option value="${i}">${i}</option>`;
+            }
+
+            monthSelect.innerHTML = '<option value="">Tháng</option>';
+            for (let i = 1; i <= 12; i++) {
+                monthSelect.innerHTML += `<option value="${i}">Tháng ${i}</option>`;
+            }
+
+            const currentYear = new Date().getFullYear();
+            yearSelect.innerHTML = '<option value="">Năm</option>';
+            for (let i = currentYear; i >= currentYear - 30; i--) {
+                yearSelect.innerHTML += `<option value="${i}">${i}</option>`;
+            }
+        }
+
+        function togglePasswordVisibility(inputId, eyeIconId) {
+            const input = document.getElementById(inputId);
+            const icon = document.getElementById(eyeIconId);
+            if (!input || !icon) return;
+
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+
+        // Standard Login Form Handler
+        function handleLogin(e) {
+            e.preventDefault();
+            const emailInput = document.getElementById('loginEmail').value.trim();
+            const displayName = emailInput ? (emailInput.includes('@') ? emailInput.split('@')[0] : emailInput) : 'Học sinh 5A4';
+            performLogin({
+                name: displayName,
+                email: emailInput || 'hocsinh@mauluong.edu.vn',
+                role: 'Học sinh Lớp 5A4',
+                avatar: '🐻'
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initDateSelectors();
+        });
+
+        // Login & Logout Handlers
+        function performLogin(userObj) {
+            currentUser = userObj;
+
+            document.getElementById('headerUserName').textContent = currentUser.name;
+            document.getElementById('headerUserAvatar').textContent = currentUser.avatar;
+            document.getElementById('welcomeUserName').textContent = currentUser.name;
+            document.getElementById('feedUserName').textContent = currentUser.name;
+            document.getElementById('feedUserRole').textContent = currentUser.role;
+            document.getElementById('feedUserAvatar').textContent = currentUser.avatar;
+            document.getElementById('postInputAvatar').textContent = currentUser.avatar;
+
+            document.getElementById('navSloganBtn').classList.add('hidden');
+            document.getElementById('loggedInUserHeader').classList.remove('hidden');
+
+            document.getElementById('loginView').classList.add('hidden');
+            document.getElementById('feedView').classList.remove('hidden');
+
+            // HIỂN THỊ CHATBOT KHI ĐÃ ĐĂNG NHẬP
+            document.getElementById('chatbotWidget').classList.remove('hidden');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            showToast('Đăng nhập thành công! 🎉', `Chào mừng ${currentUser.name} quay trở lại Lớp 5A4 Mậu Lương!`, 'success');
+        }
+
+        function handleLogout() {
+            if (!currentUser) return;
+            const oldName = currentUser.name;
+            currentUser = null;
+
+            document.getElementById('loggedInUserHeader').classList.add('hidden');
+            document.getElementById('navSloganBtn').classList.remove('hidden');
+
+            document.getElementById('feedView').classList.add('hidden');
+            document.getElementById('loginView').classList.remove('hidden');
+            document.getElementById('loginForm').reset();
+
+            // ẨN CHATBOT VÀ ĐÓNG HỘP THOẠI KHI ĐĂNG XUẤT
+            document.getElementById('chatbotWidget').classList.add('hidden');
+            document.getElementById('chatbotWindow').classList.add('hidden');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            showToast('Đã đăng xuất 👋', `Tài khoản ${oldName} đã đăng xuất an toàn.`, 'info');
+        }
+
+        // Media Upload Logic
+        function handleMediaSelect(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const previewContainer = document.getElementById('mediaPreviewContainer');
+                const previewContent = document.getElementById('mediaPreviewContent');
+                previewContainer.classList.remove('hidden');
+
+                if (file.type.startsWith('image/')) {
+                    selectedMedia = { type: 'image', url: event.target.result };
+                    previewContent.innerHTML = `<img src="${event.target.result}" class="max-h-56 rounded-lg object-contain">`;
+                } else if (file.type.startsWith('video/')) {
+                    selectedMedia = { type: 'video', url: event.target.result };
+                    previewContent.innerHTML = `<video src="${event.target.result}" controls class="max-h-56 rounded-lg"></video>`;
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function removeSelectedMedia() {
+            selectedMedia = null;
+            document.getElementById('mediaFileInput').value = '';
+            document.getElementById('mediaPreviewContainer').classList.add('hidden');
+            document.getElementById('mediaPreviewContent').innerHTML = '';
+        }
+
+        // Feed Publishing Logic
+        function publishPost() {
+            const textInput = document.getElementById('postInputText');
+            const content = textInput.value.trim();
+
+            if (!content && !selectedMedia) {
+                showToast('Chưa có nội dung', 'Vui lòng nhập nội dung hoặc đính kèm ảnh/video!', 'info');
+                return;
+            }
+
+            const emptyNotice = document.getElementById('emptyPostsNotice');
+            if (emptyNotice) emptyNotice.remove();
+
+            const postsStream = document.getElementById('postsStream');
+            
+            let mediaHTML = '';
+            if (selectedMedia) {
+                if (selectedMedia.type === 'image') {
+                    mediaHTML = `<div class="rounded-xl overflow-hidden mt-2"><img src="${selectedMedia.url}" class="w-full max-h-96 object-cover"></div>`;
+                } else if (selectedMedia.type === 'video') {
+                    mediaHTML = `<div class="rounded-xl overflow-hidden mt-2"><video src="${selectedMedia.url}" controls class="w-full max-h-96"></video></div>`;
+                }
+            }
+
+            const newPostHTML = `
+                <div class="bg-white rounded-2xl shadow p-4 sm:p-5 border border-amber-200 space-y-3 transform transition-all duration-300">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-amber-500 text-white font-bold flex items-center justify-center text-lg shadow">
+                                ${currentUser ? currentUser.avatar : '🐻'}
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-sm">${currentUser ? currentUser.name : 'Học sinh 5A4'}</h4>
+                                <p class="text-[11px] text-gray-500">Vừa xong &bull; <i class="fa-solid fa-earth-americas"></i> Lớp 5A4</p>
+                            </div>
+                        </div>
+                        <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-full">Mới</span>
+                    </div>
+
+                    ${content ? `<p class="text-sm text-gray-800 leading-relaxed">${escapeHtml(content)}</p>` : ''}
+                    ${mediaHTML}
+
+                    <div class="flex items-center justify-between pt-2 text-xs text-gray-500 border-t border-gray-100">
+                        <span class="flex items-center gap-1 font-semibold text-amber-600">
+                            <i class="fa-solid fa-thumbs-up"></i> 1 bạn thích
+                        </span>
+                        <span>0 bình luận</span>
+                    </div>
+
+                    <div class="flex items-center justify-around border-t border-b border-gray-100 py-1.5 text-xs sm:text-sm font-semibold text-gray-600">
+                        <button onclick="toggleLike(this)" class="flex items-center gap-2 hover:bg-gray-100 px-4 py-1.5 rounded-lg transition">
+                            <i class="fa-regular fa-thumbs-up"></i> Thích
+                        </button>
+                        <button onclick="focusCommentInput(this)" class="flex items-center gap-2 hover:bg-gray-100 px-4 py-1.5 rounded-lg transition">
+                            <i class="fa-regular fa-comment"></i> Bình luận
+                        </button>
+                    </div>
+
+                    <div class="space-y-2 pt-1">
+                        <div class="flex items-center gap-2 pt-1">
+                            <input type="text" placeholder="Viết bình luận..." onkeypress="handleCommentSubmit(event, this)" class="w-full bg-gray-100 text-xs px-3 py-2 rounded-full yellow-focus">
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            postsStream.insertAdjacentHTML('afterbegin', newPostHTML);
+            textInput.value = '';
+            removeSelectedMedia();
+            showToast('Đã đăng tin! 🚀', 'Bài viết mới của bạn đã được đăng thành công.');
+        }
+
+        function toggleLike(btn) {
+            const icon = btn.querySelector('i');
+            if (icon.classList.contains('fa-regular')) {
+                icon.classList.remove('fa-regular');
+                icon.classList.add('fa-solid', 'text-amber-500');
+                btn.classList.add('text-amber-600');
+            } else {
+                icon.classList.remove('fa-solid', 'text-amber-500');
+                icon.classList.add('fa-regular');
+                btn.classList.remove('text-amber-600');
+            }
+        }
+
+        function addEmojiToPost(emoji) {
+            const input = document.getElementById('postInputText');
+            input.value += ' ' + emoji;
+            input.focus();
+        }
+
+        function focusCommentInput(btn) {
+            const container = btn.closest('.bg-white');
+            const commentInput = container.querySelector('input[type="text"]');
+            if (commentInput) commentInput.focus();
+        }
+
+        function handleCommentSubmit(e, input) {
+            if (e.key === 'Enter' && input.value.trim() !== '') {
+                const commentText = input.value.trim();
+                const container = input.closest('.space-y-2');
+                const commentHTML = `
+                    <div class="flex items-start gap-2 text-xs">
+                        <span class="font-bold text-gray-900">${currentUser ? currentUser.name : 'Thành viên'}:</span>
+                        <span class="bg-gray-100 px-3 py-1.5 rounded-2xl text-gray-800">${escapeHtml(commentText)}</span>
+                    </div>
+                `;
+                container.insertAdjacentHTML('afterbegin', commentHTML);
+                input.value = '';
+            }
+        }
+
+        // Chatbot Controls
+        function toggleChatbotWindow() {
+            const botWin = document.getElementById('chatbotWindow');
+            if (botWin.classList.contains('hidden')) {
+                botWin.classList.remove('hidden');
+                botWin.classList.add('flex');
+            } else {
+                botWin.classList.add('hidden');
+                botWin.classList.remove('flex');
+            }
+        }
+
+        function handleChatbotKeypress(e) {
+            if (e.key === 'Enter') sendChatbotMessage();
+        }
+
+        function sendChatbotMessage() {
+            const input = document.getElementById('chatbotInput');
+            const text = input.value.trim();
+            if (!text) return;
+
+            const messagesContainer = document.getElementById('chatbotMessages');
+            
+            // User message
+            const userHTML = `
+                <div class="flex justify-end">
+                    <div class="bg-amber-500 text-white p-2.5 rounded-2xl rounded-tr-none max-w-[80%]">
+                        ${escapeHtml(text)}
+                    </div>
+                </div>
+            `;
+            messagesContainer.insertAdjacentHTML('beforeend', userHTML);
+            input.value = '';
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+            // Bot reply simulation
+            setTimeout(() => {
+                const botReply = getChatbotResponse(text);
+                const botHTML = `
+                    <div class="flex items-start gap-2">
+                        <div class="w-7 h-7 rounded-full bg-amber-500 text-white flex items-center justify-center text-xs flex-shrink-0 font-bold">🤖</div>
+                        <div class="bg-white border border-gray-200 p-2.5 rounded-2xl rounded-tl-none shadow-sm text-gray-800">
+                            ${botReply}
+                        </div>
+                    </div>
+                `;
+                messagesContainer.insertAdjacentHTML('beforeend', botHTML);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }, 800);
+        }
+
+        function getChatbotResponse(input) {
+            const lower = input.toLowerCase();
+            if (lower.includes('thời khóa biểu') || lower.includes('tkb')) {
+                return "Thời khóa biểu Thứ 2 gồm: Toán, Tiếng Việt, Tiếng Anh, Đạo đức và Sinh hoạt Đội bạn nhé!";
+            } else if (lower.includes('bài tập') || lower.includes('về nhà')) {
+                return "Bạn nhớ hoàn thành bài tập Ngữ Văn trước 20h Chủ Nhật nhé!";
+            } else if (lower.includes('chào') || lower.includes('hi')) {
+                return "Chào bạn! Chúc bạn một ngày học tập thật tốt cùng Lớp 5A4!";
+            } else {
+                return "Cảm ơn câu hỏi của bạn! Tớ sẽ ghi nhận và phản hồi sớm nhất nhé 🌟";
+            }
+        }
+
+        // Terms Modal Controls
+        function openTermsModal(e) {
+            e.preventDefault();
+            document.getElementById('termsModal').classList.remove('hidden');
+        }
+
+        function closeTermsModal() {
+            document.getElementById('termsModal').classList.add('hidden');
+        }
+
+        // Register Modal Controls
+        function openRegisterModal() {
+            const modal = document.getElementById('registerModal');
+            const modalContent = document.getElementById('registerModalContent');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95');
+                modalContent.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeRegisterModal() {
+            const modal = document.getElementById('registerModal');
+            const modalContent = document.getElementById('registerModalContent');
+            modal.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 200);
+        }
+
+        function handleRegister(e) {
+            e.preventDefault();
+            const firstName = document.getElementById('regFirstName').value.trim();
+            const lastName = document.getElementById('regLastName').value.trim();
+            const fullName = `${lastName} ${firstName}`;
+
+            closeRegisterModal();
+
+            // Auto-login with registered info
+            performLogin({
+                name: fullName,
+                email: document.getElementById('regContact').value,
+                role: "Học sinh Lớp 5A4",
+                avatar: "🌟"
+            });
+        }
+
+        // Forgot Password Modal Controls
+        function openForgotModal(e) {
+            e.preventDefault();
+            document.getElementById('forgotModal').classList.remove('hidden');
+        }
+
+        function closeForgotModal() {
+            document.getElementById('forgotModal').classList.add('hidden');
+        }
+
+        function handleForgotSubmit() {
+            const input = document.getElementById('forgotInput').value;
+            if (!input) {
+                showToast('Thông báo', 'Vui lòng nhập Email hoặc Số điện thoại');
+                return;
+            }
+            closeForgotModal();
+            showToast('Đã gửi mã khôi phục 📩', `Mã xác minh đã gửi tới ${input}. Hãy kiểm tra tin nhắn!`);
+        }
+
+        function showToast(title, message, type = 'info') {
+            const toast = document.getElementById('toastNotification');
+            const toastTitle = document.getElementById('toastTitle');
+            const toastMessage = document.getElementById('toastMessage');
+            const toastIcon = document.getElementById('toastIcon');
+
+            toastTitle.textContent = title;
+            toastMessage.textContent = message;
+
+            if (type === 'success') {
+                toastIcon.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400"></i>`;
+            } else if (type === 'info') {
+                toastIcon.innerHTML = `<i class="fa-solid fa-circle-info text-amber-400"></i>`;
+            } else {
+                toastIcon.innerHTML = `<i class="fa-solid fa-bell text-yellow-400"></i>`;
+            }
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 4000);
+        }
+
+        function handleLogoClick() {
+            if (currentUser) {
+                showToast('Lớp 5A4 Mậu Lương', `Bạn đang đăng nhập với tên ${currentUser.name}`);
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function toggleDemoNotice() {
+            showToast('Lớp 5A4 Mậu Lương', 'Chào mừng các bạn đến với cổng thông tin học sinh 5A4 Mậu Lương!');
+        }
+
+        function triggerBearAnimation(element) {
+            element.classList.add('shake');
+            setTimeout(() => {
+                element.classList.remove('shake');
+            }, 500);
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+    </script>
+</body>
+</html>
